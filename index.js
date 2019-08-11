@@ -1,19 +1,45 @@
-/**
- * This is the main entrypoint to your Probot app
- * @param {import('probot').Application} app
- */
-module.exports = app => {
-  // Your code here
-  app.log('Yay, the app was loaded!')
+const titleRegex = /(\w*)(?:\((\w*)\))?: (.*)/
 
-  app.on('issues.opened', async context => {
-    const issueComment = context.issue({ body: 'Thanks for opening this issue!' })
-    return context.github.issues.createComment(issueComment)
-  })
+module.exports = (app) => {
+  app.on(['pull_request.opened', 'pull_request.edited'],
+    async (context) => {
+      app.log('------ receiving webhook ------')
 
-  // For more information on building apps:
-  // https://probot.github.io/docs/
-
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
+      const config = await context.config(`badge.yml`)
+      const { owner, repo } = context.repo()
+      if (!config || config === null) {
+        app.log(`${owner}/${repo}`, `No config found, skipping`)
+        return
+      }
+      const {
+        payload: {
+          pull_request: { title, labels }
+        }
+      } = context
+      if (titleRegex.test(title)) {
+        const [, type, scope] = titleRegex.exec(title)
+        let label = null
+        if (config && config.types[type]) {
+          if (typeof config.types[type] === `string`) {
+            label = config.types[type]
+          } else if (typeof config.types[type] === `object`) {
+            if (scope && config.types[type][scope]) {
+              label = config.types[type][scope]
+            } else if (config.types[type].default) {
+              label = config.types[type].default
+            }
+          }
+        } else if (config.default) {
+          label = config.default
+        }
+        if (label !== null) {
+          context.log(`${owner}/${repo}`, `Using label:`, label)
+          const oldLabels = labels.map((lab) => lab.name)
+          const newLabels = Array.from(new Set([...oldLabels, label]))
+          const params = context.issue({ labels: newLabels })
+          context.github.issues.addLabels(params)
+        }
+      }
+    }
+  )
 }

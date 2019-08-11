@@ -24,3 +24,6 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 ## License
 
 [ISC](LICENSE) © 2019 levy9527 <levy9527@qq.com> (https://github.com/levy9527/auto-add-label)
+
+## Inspiration
+thanks to [auto-badge](https://github.com/a1motion/auto-badge)
