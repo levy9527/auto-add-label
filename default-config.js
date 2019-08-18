@@ -7,11 +7,13 @@ module.exports = {
 		deps: 'dependencies',
 		default: 'chore'
 	},
-	feat: 'enhancement',
-	hack: 'hack',
-	docs: 'documentation',
-	refactor: 'refactor',
-	style: 'style',
-	test: 'test',
-	perf: 'performance'
+	feat: {
+	  default: 'enhancement',
+	},
+	docs: {
+	  default: 'documentation',
+	},
+	perf: {
+	  default: 'performance'
+	}
 }
