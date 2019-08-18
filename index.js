@@ -1,21 +1,19 @@
 const titleRegex = /(\w*)(?:\((\w*)\))?: (.*)/
+const defaultConfig = require('./default-config')
 
 module.exports = (app) => {
   app.on(['pull_request.opened', 'pull_request.edited'],
     async (context) => {
       app.log('------ receiving webhook ------')
 
-      const config = await context.config(`badge.yml`)
+      const config = await context.config(`badge.yml`, defaultConfig)
       const { owner, repo } = context.repo()
-      if (!config || config === null) {
-        app.log(`${owner}/${repo}`, `No config found, skipping`)
-        return
-      }
       const {
         payload: {
           pull_request: { title, labels }
         }
       } = context
+
       if (titleRegex.test(title)) {
         const [, type, scope] = titleRegex.exec(title)
         let label = null
@@ -29,7 +27,7 @@ module.exports = (app) => {
               label = config.types[type].default
             }
           }
-        } else if (config.default) {
+       } else if (config.default) {
           label = config.default
         }
         if (label !== null) {
