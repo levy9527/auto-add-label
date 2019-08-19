@@ -38,7 +38,7 @@ module.exports = app => {
     let oldLabel = getType(changes.title.from)
 
     const newLabels = labels
-      .filter(l => l.name === oldLabel)
+      .filter(l => l.name != oldLabel)
       .map(l => l.name)
       .concat(label)
     context.github.issues.addLabels(context.issue({labels: newLabels}))
