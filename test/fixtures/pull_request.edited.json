@@ -1,0 +1,78 @@
+{
+  "action": "edited",
+  "number": 19,
+  "pull_request": {
+    "url": "https://api.github.com/repos/levy9527/test-repo/pulls/19",
+    "id": 308339980,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzA4MzM5OTgw",
+    "html_url": "https://github.com/levy9527/test-repo/pull/19",
+    "diff_url": "https://github.com/levy9527/test-repo/pull/19.diff",
+    "patch_url": "https://github.com/levy9527/test-repo/pull/19.patch",
+    "issue_url": "https://api.github.com/repos/levy9527/test-repo/issues/19",
+    "number": 19,
+    "state": "open",
+    "locked": false,
+    "title": "chore: update .travis.yml",
+    "user": {
+      "login": "levy9527",
+      "id": 9384365,
+      "node_id": "MDQ6VXNlcjkzODQzNjU=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/9384365?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/levy9527",
+      "html_url": "https://github.com/levy9527",
+      "followers_url": "https://api.github.com/users/levy9527/followers",
+      "following_url": "https://api.github.com/users/levy9527/following{/other_user}",
+      "gists_url": "https://api.github.com/users/levy9527/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/levy9527/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/levy9527/subscriptions",
+      "organizations_url": "https://api.github.com/users/levy9527/orgs",
+      "repos_url": "https://api.github.com/users/levy9527/repos",
+      "events_url": "https://api.github.com/users/levy9527/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/levy9527/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "body": "",
+    "created_at": "2019-08-18T05:53:41Z",
+    "updated_at": "2019-08-19T13:25:44Z",
+    "closed_at": null,
+    "merged_at": null,
+    "merge_commit_sha": "ea09797e712c45bdb13ab18379a8f9cbd028645c",
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "requested_reviewers": [
+
+    ],
+    "requested_teams": [
+
+    ],
+    "labels": [
+      {
+        "id": 1506122345,
+        "node_id": "MDU6TGFiZWwxNTA2MTIyMzQ1",
+        "url": "https://api.github.com/repos/levy9527/test-repo/labels/ci",
+        "name": "ci",
+        "color": "ededed",
+        "default": false
+      }
+    ],
+    "milestone": null,
+    "commits_url": "https://api.github.com/repos/levy9527/test-repo/pulls/19/commits",
+    "review_comments_url": "https://api.github.com/repos/levy9527/test-repo/pulls/19/comments",
+    "review_comment_url": "https://api.github.com/repos/levy9527/test-repo/pulls/comments{/number}",
+    "comments_url": "https://api.github.com/repos/levy9527/test-repo/issues/19/comments",
+    "statuses_url": "https://api.github.com/repos/levy9527/test-repo/statuses/99b1bcf461a434f3dd0e613f219c16e419b75639"
+  },
+  "changes": {
+    "title": {
+      "from": "ci: update .travis.yml"
+    }
+  },
+  "installation": {
+    "id": 1447686,
+    "node_id": "MDIzOkludGVncmF0aW9uSW5zdGFsbGF0aW9uMTQ0NzY4Ng=="
+  }
+}
