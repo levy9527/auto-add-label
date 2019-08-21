@@ -48,7 +48,13 @@ describe('auto add label', () => {
   test('hasTitleChanged', () => {
     const title = 'chore: update .travis.yml'
 
-    const change2Ci = {
+    const noType = {
+      title: {
+        from: 'update .travis.yml'
+      }
+    }
+
+    const changeType = {
       title: {
         from: 'ci: update .travis.yml'
       }
@@ -66,7 +72,8 @@ describe('auto add label', () => {
       }
     }
 
-    expect(hasTitleChanged(title, change2Ci)).toBeTruthy()
+    expect(hasTitleChanged(title, noType)).toBeTruthy()
+    expect(hasTitleChanged(title, changeType)).toBeTruthy()
     expect(hasTitleChanged(title, changeBody)).toBeFalsy()
     expect(hasTitleChanged(title, changeMsg)).toBeFalsy()
   })

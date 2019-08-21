@@ -12,6 +12,8 @@ module.exports = app => {
     } = context
 
     let label = getType(title)
+
+    if(!label) return
     if (labels.some(l => l.name === label)) return
 
     const newLabels = labels.map(l => l.name).concat(label)
@@ -32,8 +34,10 @@ module.exports = app => {
     } = context
 
     let label = getType(title)
-    if (labels.some(l => l.name === label)) return
+
+    if(!label) return
     if (!hasTitleChanged(title, changes)) return
+    if (labels.some(l => l.name === label)) return
 
     let oldLabel = getType(changes.title.from)
 
