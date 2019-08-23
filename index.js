@@ -16,6 +16,8 @@ module.exports = app => {
     if(!label) return
     if (labels.some(l => l.name === label)) return
 
+    app.log('------ begin to process ------')
+
     const newLabels = labels.map(l => l.name).concat(label)
     context.github.issues.addLabels(context.issue({labels: newLabels}))
 
@@ -38,6 +40,8 @@ module.exports = app => {
     if(!label) return
     if (!hasTitleChanged(title, changes)) return
     if (labels.some(l => l.name === label)) return
+
+    app.log('------ begin to process ------')
 
     let oldLabel = getType(changes.title.from)
 
