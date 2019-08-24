@@ -2,7 +2,27 @@
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that 🏷 Automatically add label for pull request
 
-## Setup
+## Install
+
+[Set up a plan](https://github.com/marketplace/auto-add-label)
+
+## Why
+
+We use [gren](https://github.com/github-tools/github-release-notes) to generate github release notes, like this:
+
+![image-20190824144637338](assets/image-20190824144637338.png)
+
+This requires we label every pull request:
+
+![image-20190824144931139](assets/image-20190824144931139.png)
+
+If we forget to add label,  there will be no release log:
+
+![image-20190824145253175](assets/image-20190824145253175.png)
+
+In fact, as a human, I often forget to do that. That' why I create this app.
+
+## Dev 
 
 ```sh
 # Install dependencies
