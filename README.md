@@ -15,15 +15,15 @@
 
 We use [gren](https://github.com/github-tools/github-release-notes) to generate github release notes, like this:
 
-![image-20190824144637338](assets/image-20190824144637338.png)
+![image-20190824144637338](https://tva1.sinaimg.cn/large/006y8mN6ly1g6av26v5lzj310w0gcjy0.jpg)
 
 This requires we label every pull request:
 
-![image-20190824144931139](assets/image-20190824144931139.png)
+![image-20190824144931139](https://tva1.sinaimg.cn/large/006y8mN6ly1g6av2jw6c5j31j20kk490.jpg)
 
 If we forget to add label,  there will be no release log:
 
-![image-20190824145253175](assets/image-20190824145253175.png)
+![image-20190824145253175](https://tva1.sinaimg.cn/large/006y8mN6ly1g6av2ifwa7j31ea0gmtci.jpg)
 
 In fact, as a human, I often forget to do that. That' why I create this app.
 
