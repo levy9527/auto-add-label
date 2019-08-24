@@ -6,6 +6,11 @@
 
 [Set up a plan](https://github.com/marketplace/auto-add-label)
 
+## How to
+
+- [中文](https://zhuanlan.zhihu.com/p/79570363)
+- [English](https://medium.com/deepexi/how-to-write-a-github-app-b297b7889815)
+
 ## Why
 
 We use [gren](https://github.com/github-tools/github-release-notes) to generate github release notes, like this:
@@ -21,6 +26,7 @@ If we forget to add label,  there will be no release log:
 ![image-20190824145253175](assets/image-20190824145253175.png)
 
 In fact, as a human, I often forget to do that. That' why I create this app.
+
 
 ## Dev 
 
