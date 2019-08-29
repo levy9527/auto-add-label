@@ -49,7 +49,7 @@ module.exports = app => {
       .filter(l => l.name != oldLabel)
       .map(l => l.name)
       .concat(label)
-    context.github.issues.addLabels(context.issue({labels: newLabels}))
+    context.github.issues.replaceLabels(context.issue({labels: newLabels}))
 
     const {owner, repo} = context.repo()
     context.log(`${owner}/${repo}`, `Using label:`, newLabels)
