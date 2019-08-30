@@ -38,7 +38,7 @@ module.exports = app => {
     let label = getType(title)
 
     if(!label) return
-    if (!hasTitleChanged(title, changes)) return
+  //  if (!hasTitleChanged(title, changes)) return
     if (labels.some(l => l.name === label)) return
 
     app.log('------ begin to process ------')
