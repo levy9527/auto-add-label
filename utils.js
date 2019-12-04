@@ -1,10 +1,12 @@
 const defaultConfig = require('./default-config')
 
 const getType = title => {
-  const titleRegex = /(\w*)(?:\((.*)\))?: (.*)/
+  const titleRegex = /(\w*)(!?)(?:\((.*)\)(!?))?: (.*)/
   if (!titleRegex.test(title)) return ''
 
-  const [, type, scope] = titleRegex.exec(title)
+  const [, type, typeMark, scope, scopeMark] = titleRegex.exec(title)
+
+  if (typeMark || scopeMark) return 'breaking-change'
   return defaultConfig[type]
     ? defaultConfig[type][scope] || defaultConfig[type].default
     : type

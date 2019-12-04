@@ -43,6 +43,9 @@ describe('auto add label', () => {
     expect(getType('refactor: redo sth')).toBe('refactor')
     expect(getType('style: prettier it')).toBe('style')
     expect(getType('test: add unit testing')).toBe('test')
+
+    expect(getType('feat!: a feat with breaking change')).toBe('breaking-change')
+    expect(getType('feat(scope)!: a feat in socpe with breaking change')).toBe('breaking-change')
   })
 
   test('hasTitleChanged', () => {
