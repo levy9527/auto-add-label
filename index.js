@@ -3,7 +3,8 @@ const {getType, hasTitleChanged} = require('./utils')
 
 module.exports = app => {
   app.on(['pull_request.opened'], async context => {
-    app.log('------ receiving pull_request.opened webhook ------')
+    const {owner, repo} = context.repo()
+    app.log(`------ receiving pull_request.opened webhook: ${owner}/${repo} ------`)
 
     const {
       payload: {
@@ -21,12 +22,12 @@ module.exports = app => {
     const newLabels = labels.map(l => l.name).concat(label)
     context.github.issues.addLabels(context.issue({labels: newLabels}))
 
-    const {owner, repo} = context.repo()
-    context.log(`${owner}/${repo}`, `Using label:`, newLabels)
+    context.log(`Using label:`, newLabels)
   })
 
   app.on(['pull_request.edited'], async context => {
-    app.log('------ receiving pull_request.edited webhook ------')
+    const {owner, repo} = context.repo()
+    app.log(`------ receiving pull_request.edited webhook: ${owner}/${repo} ------`)
 
     const {
       payload: {
@@ -51,7 +52,6 @@ module.exports = app => {
       .concat(label)
     context.github.issues.replaceLabels(context.issue({labels: newLabels}))
 
-    const {owner, repo} = context.repo()
-    context.log(`${owner}/${repo}`, `Using label:`, newLabels)
+    context.log(`Using label:`, newLabels)
   })
 }
