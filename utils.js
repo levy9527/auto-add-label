@@ -9,7 +9,7 @@ const getType = title => {
   if (typeMark || scopeMark) return 'breaking-change'
   return defaultConfig[type]
     ? defaultConfig[type][scope] || defaultConfig[type].default
-    : type
+    : null
 }
 
 const hasTitleChanged = (title, changes = {}) => {
